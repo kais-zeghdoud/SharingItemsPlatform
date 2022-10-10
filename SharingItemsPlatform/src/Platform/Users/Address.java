@@ -1,15 +1,22 @@
 package Platform.Users;
 
 public class Address {
-    private int streetNB;
-    private String streetName;
-    private int postalCode;
-    private String city;
-    private String country;
+    private final int streetNB;
+    private final String streetName;
+    private final int postalCode;
+    private final String city;
+    private final String country;
 
-    public Address(){}
+    public Address(int streetNB, String streetName, int postalCode, String city, String country){
+        this.streetNB = streetNB;
+        this.streetName = streetName;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.country = country;
+    }
 
-    public String toString(){return "";}
+    public String toString(){
+        return streetNB + " " + streetName + " " + postalCode + " " + city + " " + country;}
 
     public String getCity() {return city;}
 }

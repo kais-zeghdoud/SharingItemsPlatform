@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6162d9a8-4461-4c4a-bf77-c42b6bfbf458" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Platform/Items/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Platform/Items/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Platform/PlatformController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Platform/Posts/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Platform/Posts/Rate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Platform/Users/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Platform/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PlatformClassDiagram.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/../PlatformClassDiagram.mdj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SharingItemsPlatform/Plaform.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/Users/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/Users/Address.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +44,20 @@
       <recent name="Platform.Posts" />
       <recent name="PlatformController" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="SharingItemsPlatform" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
