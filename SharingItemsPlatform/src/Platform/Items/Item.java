@@ -17,11 +17,11 @@ public class Item {
     }
 
     public String toString(){
-
-        return "";
+        return "Item name : " + itemName + "\nItem category : " + itemCategory + "\nAuthor : " + author +
+                "\nRelease Date : " + releaseDate + "Users recommendations : " + recommendations;
     }
 
-    public void increaseRecommendations(){
+    public Category getItemCategory(){return itemCategory;}
 
-    }
+    public String getItemName(){return itemName;}
 }

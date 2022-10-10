@@ -1,8 +1,8 @@
 package Platform.Posts;
 import Platform.Items.Item;
 import Platform.Users.User;
-
 import java.time.LocalDateTime;
+
 
 public class Rate {
     private final int rateID;
@@ -22,4 +22,5 @@ public class Rate {
     public String toString(){
         return "";
     }
+
 }

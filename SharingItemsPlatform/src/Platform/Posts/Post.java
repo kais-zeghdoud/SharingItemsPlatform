@@ -26,6 +26,8 @@ public class Post {
 
     public Item getItem(){return postedItem;}
 
+    public User getPoster(){return poster;}
+
     public List<Rate> getRatings(){return ratings;}
 
     public int getRecommendations(){return recommendations;}
