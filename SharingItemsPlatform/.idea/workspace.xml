@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6162d9a8-4461-4c4a-bf77-c42b6bfbf458" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../PlatformClassDiagram.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/../PlatformClassDiagram.mdj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SharingItemsPlatform/Plaform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Platform/Users/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/Users/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/Items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/PlatformController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/PlatformController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/Posts/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/Posts/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/Posts/Rate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/Posts/Rate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platform/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platform/Users/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +37,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Platform.Posts" />

@@ -9,10 +9,14 @@ public class Rate {
     private Item ratedItem;
     private User ratingUser;
     private String text;
-    private LocalDateTime time;
+    private final LocalDateTime time;
 
-    public Rate(int rateID) {
+    public Rate(int rateID, Item ratedItem, User ratingUser, String text) {
         this.rateID = rateID;
+        this.ratedItem = ratedItem;
+        this.ratingUser = ratingUser;
+        this.text = text;
+        time = LocalDateTime.now();
     }
 
     public String toString(){

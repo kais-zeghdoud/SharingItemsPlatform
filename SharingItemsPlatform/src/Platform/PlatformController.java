@@ -1,10 +1,12 @@
 package Platform;
+import Platform.Posts.Post;
 import Platform.Users.User;
 import java.util.List;
 
 public class PlatformController {
     private static PlatformController instance;
     private static List<User> users;
+    private static List<Post> posts;
 
     private PlatformController(){}
 
@@ -15,6 +17,8 @@ public class PlatformController {
     }
 
     public List<User> getUsers(){return users;}
+
+    public List<Post> getPosts(){return posts;}
 
     public void createUser(){}
 
