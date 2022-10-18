@@ -1,4 +1,4 @@
-package Platform.Users;
+package src.rest.Platform.Users;
 
 public class Address {
     private final int streetNB;

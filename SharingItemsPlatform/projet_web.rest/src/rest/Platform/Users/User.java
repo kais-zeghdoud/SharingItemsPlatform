@@ -1,9 +1,9 @@
-package Platform.Users;
-import Platform.Items.Category;
-import Platform.Items.Item;
-import Platform.PlatformController;
-import Platform.Posts.Post;
-import Platform.Posts.Rate;
+package src.rest.Platform.Users;
+import src.rest.Platform.Items.Category;
+import src.rest.Platform.Items.Item;
+import src.rest.Platform.PlatformController;
+import src.rest.Platform.Posts.Post;
+import src.rest.Platform.Posts.Rate;
 import java.util.Date;
 import java.util.List;
 
