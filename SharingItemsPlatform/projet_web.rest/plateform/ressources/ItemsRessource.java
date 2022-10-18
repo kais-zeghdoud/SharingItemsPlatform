@@ -86,7 +86,7 @@ public class ItemsRessource {
 
     // Defines that the next path parameter after items is
     // treated as a parameter and passed to the ItemResources
-    // Allows to type http://localhost:8080/rest.item/rest/items/1
+    // Allows to type http://localhost:8080/SharingItemsPlatform/Platform/items/1
     // 1 will be treaded as parameter item and passed to ItemResource
     @Path("{item}")
     public ItemRessource getItem(@PathParam("item") String id) {
