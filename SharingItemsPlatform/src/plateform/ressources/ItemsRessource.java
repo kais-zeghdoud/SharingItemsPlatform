@@ -3,6 +3,7 @@ package plateform.ressources;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -18,14 +19,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
 
+import Platform.Items.Category;
 import Platform.Items.Item;
 import dao.ItemDao;
-import plateform.ressources.ItemRessource;
 
 
 
 /// Will map the resource to the URL items
-@Path("/todos")
+@Path("/Items")
 public class ItemsRessource {
 
     // Allows to insert contextual objects into the class,
@@ -44,49 +45,52 @@ public class ItemsRessource {
         return items;
     }
 
-    // Return the list of todos for applications
+    // Return the list of items for applications
     @GET
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-    public List<Todo> getTodos() {
-        List<Todo> todos = new ArrayList<Todo>();
-        todos.addAll(TodoDao.instance.getModel().values());
-        return todos;
+    public List<Item> get() {
+        List<Item> Items = new ArrayList<Item>();
+        Items.addAll(ItemDao.instance.getModel().values());
+        return Items;
     }
 
-    // retuns the number of todos
-    // Use http://localhost:8080/com.vogella.jersey.todo/rest/todos/count
+    // retuns the number of Items
+    // Use http://localhost:8080/com.vogella.jersey.Item/rest/Items/count
     // to get the total number of records
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String getCount() {
-        int count = TodoDao.instance.getModel().size();
+        int count = ItemDao.instance.getModel().size();
         return String.valueOf(count);
     }
 
     @POST
     @Produces(MediaType.TEXT_HTML)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void newTodo(@FormParam("id") String id,
-            @FormParam("summary") String summary,
-            @FormParam("description") String description,
+    public void newItem(@FormParam("id") String id,
+            @FormParam("itemCategory") Category cat,
+            @FormParam("itemName") String itemName,
+            @FormParam("author") String author,
+            @FormParam("releaseDate") Date releaseDate,
             @Context HttpServletResponse servletResponse) throws IOException {
-        Todo todo = new Todo(id, summary);
-        if (description != null) {
-            todo.setDescription(description);
-        }
-        TodoDao.instance.getModel().put(id, todo);
+        Item item = new Item(id, cat, itemName, author, releaseDate);
+        // set an attribut if it's missing
+        /*if (description != null) {
+            item.set(description);
+        }*/
+        ItemDao.instance.getModel().put(id, item);
 
-        servletResponse.sendRedirect("../create_todo.html");
+        servletResponse.sendRedirect("../create_item.html");
     }
 
-    // Defines that the next path parameter after todos is
-    // treated as a parameter and passed to the TodoResources
-    // Allows to type http://localhost:8080/rest.todo/rest/todos/1
-    // 1 will be treaded as parameter todo and passed to TodoResource
-    @Path("{todo}")
-    public TodoResource getTodo(@PathParam("todo") String id) {
-        return new TodoResource(uriInfo, request, id);
+    // Defines that the next path parameter after items is
+    // treated as a parameter and passed to the ItemResources
+    // Allows to type http://localhost:8080/rest.item/rest/items/1
+    // 1 will be treaded as parameter item and passed to ItemResource
+    @Path("{item}")
+    public ItemRessource getItem(@PathParam("item") String id) {
+        return new ItemRessource(uriInfo, request, id);
     }
 
 }
