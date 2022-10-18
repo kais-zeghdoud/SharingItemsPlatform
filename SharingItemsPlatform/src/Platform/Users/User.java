@@ -23,8 +23,8 @@ public class User {
 
     public Address getAddress(){return address;}
 
-    public void postItem(String postDescription, Category itemCategory, String itemName, String author, Date releaseDate){
-        Item item = new Item(itemCategory, itemName, author, releaseDate);
+    public void postItem(String id, String postDescription, Category itemCategory, String itemName, String author, Date releaseDate){
+        Item item = new Item(id, itemCategory, itemName, author, releaseDate);
         PlatformController.getInstance().getPosts().add(new Post(item, this, postDescription));
     }
 
