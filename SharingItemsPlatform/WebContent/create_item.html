@@ -2,25 +2,54 @@
 <html>
  <head>
   <title>Form to create a new item</title>
+   <link rel="stylesheet" href="create_item.css">
  </head>
+
+
 <body>
-  <form action="../projet_web.rest/rest/items" method="POST">
-  <label for="id">ID</label>
-  <input name="id" />
-  <br/>
-  <label for="itemCategory">Item category</label>
-  <input name="itemCategory" />
-  <br/>
-  <label for="itemName">Item name</label>
-  <input name="itemName" />
-  <br/>
-  <label for="author">Item author</label>
-  <input name="author" />
-  <br/>
-  <label for="releaseDate">Item release date</label>
-  <input name="releaseDate" />
-  <br/>
-  <input type="submit" value="Submit" />
+
+  <div class="top-page">
+    <h1>Sharing Items Platform</h1>
+    <h3>Enter your item information to submit it !</h3>
+  </div>
+
+
+  <form class="form" action="../projet_web.rest/rest/items" method="POST">
+
+    <div class="form-input">
+      <label for="id">ID</label>
+      <input name="id" />
+    </div>
+
+    <div class="form-input">
+      <label for="itemCategory">Item category</label>
+      <select name="itemCategory">
+        <option value="book">Book</option>
+        <option value="book">Video Game</option>
+        <option value="book">CD music</option>
+        <option value="book">DVD</option>
+      </select>
+    </div>
+
+    <div class="form-input">
+      <label for="itemName">Item name</label>
+      <input name="itemName" />
+    </div>
+
+    <div class="form-input">
+      <label for="author">Item author</label>
+      <input name="author" />
+    </div>
+
+    <div class="form-input">
+      <label for="releaseDate">Item release date</label>
+      <input type="date" name="releaseDate" />
+    </div>
+
+    <div class="form-input">
+      <input type="submit" value="Submit" />
+    </div>
+
   </form>
 </body>
 </html> 
