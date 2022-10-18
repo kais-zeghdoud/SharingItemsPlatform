@@ -1,7 +1,7 @@
-package Platform.Posts;
-import Platform.Items.Item;
-import Platform.PlatformController;
-import Platform.Users.User;
+package src.rest.Platform.Posts;
+import src.rest.Platform.Items.Item;
+import src.rest.Platform.PlatformController;
+import src.rest.Platform.Users.User;
 import java.time.LocalDateTime;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package Platform.Items;
+package src.rest.Platform.Items;
 import java.util.Date;
 
 public class Item {

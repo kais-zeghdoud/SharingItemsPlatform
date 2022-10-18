@@ -1,9 +1,9 @@
-package Platform;
-import Platform.Items.Category;
-import Platform.Items.Item;
-import Platform.Posts.Post;
-import Platform.Users.Address;
-import Platform.Users.User;
+package src.rest.Platform;
+import src.rest.Platform.Items.Category;
+import src.rest.Platform.Items.Item;
+import src.rest.Platform.Posts.Post;
+import src.rest.Platform.Users.Address;
+import src.rest.Platform.Users.User;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package plateform.ressources;
+package src.rest.plateform.ressources;
 
 
 import java.io.IOException;
@@ -19,14 +19,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
 
-import Platform.Items.Category;
-import Platform.Items.Item;
-import dao.ItemDao;
+import src.rest.Platform.Items.Category;
+import src.rest.Platform.Items.Item;
+import src.rest.dao.ItemDao;
 
 
 
 /// Will map the resource to the URL items
-@Path("/Items")
+@Path("/items")
 public class ItemsRessource {
 
     // Allows to insert contextual objects into the class,
