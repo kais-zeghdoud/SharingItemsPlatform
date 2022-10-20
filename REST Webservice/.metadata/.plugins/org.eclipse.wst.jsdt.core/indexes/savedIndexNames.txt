@@ -1,2 +1,0 @@
-INDEX VERSION 1.4+C:\Users\anton\Desktop\fonda\projet\TP3 REST Webservice\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-190948666.index
