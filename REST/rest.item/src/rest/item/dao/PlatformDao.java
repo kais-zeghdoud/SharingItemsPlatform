@@ -1,36 +1,29 @@
 package rest.item.dao;
 import rest.item.model.*;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
 
 public enum PlatformDao {
     instance;
-    private static List<User> users;
-    private static List<Post> posts;
+    private List<User> users = new ArrayList<User>();
+    private List<Post> posts = new ArrayList<Post>();
 
     private PlatformDao() {
-        Todo todo = new Todo("1", "Prendre un bon petit d�j");
-        todo.setDescription("il est important de commencer la journ�e par un repas �quilibr�");
-        contentProvider.put("1", todo);
-        todo = new Todo("2", "Faire 10000 pas");
-        todo.setDescription("afin de garder une bonne sant�");
-        contentProvider.put("2", todo);
+    	Post p = new Post(new Item(Category.musicCD, "DLL", "PNL", new Date()), 1, "best album ever");
+    	posts.add(p);
     }
     
     public List<User> getUsers(){return users;}
     public List<Post> getPosts(){return posts;}
-
+    
+    /*
     public void createUser(String fullName, int NB, String name, int postalCode, String city, String country){
         users.add(new User(fullName, new Address(NB, name, postalCode, city, country)));
     }
-    
-    public void createPost() {
-    	posts.add(null);
-    }
+    */
 
     
     public List<Item> getItemsByCategory(Category category){
@@ -53,6 +46,7 @@ public enum PlatformDao {
     }
 
     
+    /*
     public List<Item> getItemsByCity(String city){
         List<Item> items = new ArrayList<>();
         for (Post post: posts) {
@@ -71,4 +65,5 @@ public enum PlatformDao {
         }
         return items;
     }
+    */
 }

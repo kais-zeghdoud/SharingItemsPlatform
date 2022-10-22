@@ -13,16 +13,16 @@ import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.JAXBElement;
 
 import rest.item.dao.PlatformDao;
-import rest.item.model.Todo;
+import rest.item.model.*;
 
 
-public class TodoResource {
+public class PostResource {
     @Context
     UriInfo uriInfo;
     @Context
     Request request;
-    String id;
-    public TodoResource(UriInfo uriInfo, Request request, String id) {
+    int id;
+    public PostResource(UriInfo uriInfo, Request request, int id) {
         this.uriInfo = uriInfo;
         this.request = request;
         this.id = id;
@@ -31,48 +31,46 @@ public class TodoResource {
     //Application integration
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Todo getTodo() {
-        Todo todo = PlatformDao.instance.getModel().get(id);
-        if(todo==null)
-            throw new RuntimeException("Get: Todo with " + id +  " not found");
-        return todo;
+    public Post getPost(){
+        Post post = PlatformDao.instance.getPosts().get(id);
+        if(post==null)
+            throw new RuntimeException("Get: Post with " + id +  " not found");
+        return post;
     }
 
     // for the browser
     @GET
     @Produces(MediaType.TEXT_XML)
-    public Todo getTodoHTML() {
-        Todo todo = PlatformDao.instance.getModel().get(id);
-        if(todo==null)
-            throw new RuntimeException("Get: Todo with " + id +  " not found");
-        return todo;
+    public Post getPostHTML() {
+        Post post = PlatformDao.instance.getPosts().get(id);
+        if(post==null)
+            throw new RuntimeException("Get: Post with " + id +  " not found");
+        return post;
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_XML)
-    public Response putTodo(JAXBElement<Todo> todo) {
-        Todo c = todo.getValue();
-        return putAndGetResponse(c);
+    public Response putPost(JAXBElement<Post> post) {
+        Post p = post.getValue();
+        return putAndGetResponse(p);
     }
 
     @DELETE
     public void deleteTodo() {
-        Todo c = PlatformDao.instance.getModel().remove(id);
-        if(c==null)
-            throw new RuntimeException("Delete: Todo with " + id +  " not found");
+        Post p = PlatformDao.instance.getPosts().remove(id);
+        if(p==null)
+            throw new RuntimeException("Delete: Post with " + id +  " not found");
     }
 
-    private Response putAndGetResponse(Todo todo) {
+    private Response putAndGetResponse(Post post) {
         Response res;
-        if(PlatformDao.instance.getModel().containsKey(todo.getId())) {
+        if(PlatformDao.instance.getPosts().contains(post)) {
             res = Response.noContent().build();
         } else {
             res = Response.created(uriInfo.getAbsolutePath()).build();
         }
-        PlatformDao.instance.getModel().put(todo.getId(), todo);
+        PlatformDao.instance.getPosts().add(post);
         return res;
     }
-
-
-
 }
+

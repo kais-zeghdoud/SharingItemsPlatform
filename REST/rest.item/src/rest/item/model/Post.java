@@ -9,19 +9,17 @@ import rest.item.dao.PlatformDao;
 public class Post {
 	private final int postID;
     private final Item postedItem;
-    private final User poster;
+    private final int posterID;
     private final String description;
     private LocalDateTime postTime;
     private List<Rate> ratings;
     private int recommendations;
 
-    public Post(Item item, User user, String description) {
-    	
-        this.postID = PlatformDao.instance.getModel().size() + 1; // CHANGE !!!!!
-        
-        
+    public Post(Item item, int posterID, String description) {
+        //this.postID = PlatformDao.instance.getPosts().size() + 1;
+    	postID = 0;
         postedItem = item;
-        poster = user;
+        this.posterID = posterID;
         this.description = description;
         postTime = LocalDateTime.now();
         recommendations = 0;
@@ -29,7 +27,7 @@ public class Post {
 
     public Item getItem(){return postedItem;}
 
-    public User getPoster(){return poster;}
+    public int getPoster(){return posterID;}
 
     public List<Rate> getRatings(){return ratings;}
 

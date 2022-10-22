@@ -2,7 +2,7 @@ package rest.item.model;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.List;
-
+import rest.item.dao.PlatformDao;
 
 @XmlRootElement
 public class User {
@@ -12,7 +12,7 @@ public class User {
     private List<Post> userRecommendations;
 
     public User(String fullName, Address address) {
-        this.userID = PlatformController.getInstance().getUsers().size() + 1;
+        this.userID = PlatformDao.instance.getUsers().size() + 1;
         this.address = address;
     }
 
@@ -20,13 +20,13 @@ public class User {
 
     public Address getAddress(){return address;}
 
-    public void postItem(String id, String postDescription, Category itemCategory, String itemName, String author, Date releaseDate){
-        Item item = new Item(id, itemCategory, itemName, author, releaseDate);
-        PlatformController.getInstance().getPosts().add(new Post(item, this, postDescription));
+    public void postItem(String postDescription, Category itemCategory, String itemName, String author, Date releaseDate){
+        Item item = new Item(itemCategory, itemName, author, releaseDate);
+        PlatformDao.instance.getPosts().add(new Post(item, userID, postDescription));
     }
 
     public void removePost(Post post){
-        PlatformController.getInstance().getPosts().remove(post);
+    	PlatformDao.instance.getPosts().remove(post);
     }
 
     public void rateItem(Post post, String text){
@@ -35,7 +35,7 @@ public class User {
     }
 
     public void putRecommendation(Post post){
-        if(userRecommendations.contains(post)){
+        if(!userRecommendations.contains(post)){
             post.increaseRecommendations();
             userRecommendations.add(post);
         }
