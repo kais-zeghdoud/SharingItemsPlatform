@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.JAXBElement;
 
-import rest.item.dao.TodoDao;
+import rest.item.dao.PlatformDao;
 import rest.item.model.Todo;
 
 
@@ -32,7 +32,7 @@ public class TodoResource {
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Todo getTodo() {
-        Todo todo = TodoDao.instance.getModel().get(id);
+        Todo todo = PlatformDao.instance.getModel().get(id);
         if(todo==null)
             throw new RuntimeException("Get: Todo with " + id +  " not found");
         return todo;
@@ -42,7 +42,7 @@ public class TodoResource {
     @GET
     @Produces(MediaType.TEXT_XML)
     public Todo getTodoHTML() {
-        Todo todo = TodoDao.instance.getModel().get(id);
+        Todo todo = PlatformDao.instance.getModel().get(id);
         if(todo==null)
             throw new RuntimeException("Get: Todo with " + id +  " not found");
         return todo;
@@ -57,19 +57,19 @@ public class TodoResource {
 
     @DELETE
     public void deleteTodo() {
-        Todo c = TodoDao.instance.getModel().remove(id);
+        Todo c = PlatformDao.instance.getModel().remove(id);
         if(c==null)
             throw new RuntimeException("Delete: Todo with " + id +  " not found");
     }
 
     private Response putAndGetResponse(Todo todo) {
         Response res;
-        if(TodoDao.instance.getModel().containsKey(todo.getId())) {
+        if(PlatformDao.instance.getModel().containsKey(todo.getId())) {
             res = Response.noContent().build();
         } else {
             res = Response.created(uriInfo.getAbsolutePath()).build();
         }
-        TodoDao.instance.getModel().put(todo.getId(), todo);
+        PlatformDao.instance.getModel().put(todo.getId(), todo);
         return res;
     }
 

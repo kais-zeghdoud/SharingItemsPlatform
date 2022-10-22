@@ -18,7 +18,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
 
-import rest.item.dao.TodoDao;
+import rest.item.dao.PlatformDao;
 import rest.item.model.Todo;
 
 
@@ -39,7 +39,7 @@ public class TodosResource {
     @Produces(MediaType.TEXT_XML)
     public List<Todo> getTodosBrowser() {
         List<Todo> todos = new ArrayList<Todo>();
-        todos.addAll(TodoDao.instance.getModel().values());
+        todos.addAll(PlatformDao.instance.getModel().values());
         return todos;
     }
 
@@ -48,7 +48,7 @@ public class TodosResource {
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
     public List<Todo> getTodos() {
         List<Todo> todos = new ArrayList<Todo>();
-        todos.addAll(TodoDao.instance.getModel().values());
+        todos.addAll(PlatformDao.instance.getModel().values());
         return todos;
     }
 
@@ -59,7 +59,7 @@ public class TodosResource {
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String getCount() {
-        int count = TodoDao.instance.getModel().size();
+        int count = PlatformDao.instance.getModel().size();
         return String.valueOf(count) + "******";
     }
 
@@ -74,7 +74,7 @@ public class TodosResource {
         if (description != null) {
             todo.setDescription(description);
         }
-        TodoDao.instance.getModel().put(id, todo);
+        PlatformDao.instance.getModel().put(id, todo);
 
         servletResponse.sendRedirect("../create_todo.html");
     }
