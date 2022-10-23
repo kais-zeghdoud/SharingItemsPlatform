@@ -21,8 +21,8 @@ public class PostResource {
     UriInfo uriInfo;
     @Context
     Request request;
-    int id;
-    public PostResource(UriInfo uriInfo, Request request, int id) {
+    String id;
+    public PostResource(UriInfo uriInfo, Request request, String id) {
         this.uriInfo = uriInfo;
         this.request = request;
         this.id = id;
@@ -64,12 +64,12 @@ public class PostResource {
 
     private Response putAndGetResponse(Post post) {
         Response res;
-        if(PlatformDao.instance.getPosts().contains(post)) {
+        if(PlatformDao.instance.getPosts().containsKey(post.getID())) {
             res = Response.noContent().build();
         } else {
             res = Response.created(uriInfo.getAbsolutePath()).build();
         }
-        PlatformDao.instance.getPosts().add(post);
+        PlatformDao.instance.getPosts().put(post.getID() , post);
         return res;
     }
 }

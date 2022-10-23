@@ -2,6 +2,7 @@ package rest.item.resources;
 
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -38,9 +39,9 @@ public class PostsResource {
     // Return the list of posts to the user in the browser
     @GET
     @Produces(MediaType.TEXT_XML)
-    public List<Post> getPostsBrowser() {  
+    public List<Post> getPostsBrowser(){
     	List<Post> posts = new ArrayList<Post>();
-    	posts.addAll(PlatformDao.instance.getPosts());
+    	posts.addAll(PlatformDao.instance.getPosts().values());
     	return posts;
     }
 
@@ -49,7 +50,7 @@ public class PostsResource {
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
     public List<Post> getPosts() {
     	List<Post> posts = new ArrayList<Post>();
-    	posts.addAll(PlatformDao.instance.getPosts());
+    	posts.addAll(PlatformDao.instance.getPosts().values());
     	return posts;
     }
 
@@ -60,8 +61,8 @@ public class PostsResource {
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String getCount() {
-    	if(PlatformDao.instance.getPosts().isEmpty())
-    		return "No items on the Platform yet";
+    	if(PlatformDao.instance.getPosts().values().isEmpty())
+    		return "No item posted on the Platform yet";
     	else {
     		int count = PlatformDao.instance.getPosts().size();
             return "Posted items on the Platform : " + count;
@@ -74,13 +75,13 @@ public class PostsResource {
     public void newPost(@FormParam("category") Category cat,
             @FormParam("itemName") String itemName,
             @FormParam("author") String author,
-            @FormParam("releaseDate") Date releaseDate,
+            @FormParam("releaseDate") String releaseDate,
             @FormParam("userID") int user,
             @FormParam("description") String description,
             @Context HttpServletResponse servletResponse) throws IOException {
     	
-        Item item = new Item(cat, itemName, author, releaseDate);
-        PlatformDao.instance.getPosts().add(new Post(item, user, description));
+        Item item = new Item(cat, itemName, author, new SimpleDateFormat(releaseDate));
+        PlatformDao.instance.getPosts().put("9",new Post(user, item, description));
         servletResponse.sendRedirect("../create_post.html");
     }
     
@@ -90,8 +91,22 @@ public class PostsResource {
     // Allows to type http://localhost:8080/rest.item/rest/posts/1
     // 1 will be treaded as parameter post and passed to PostResource
     @Path("{post}")
-    public PostResource getTodo(@PathParam("post") int id) {
+    public PostResource getPost(@PathParam("post") String id) {
         return new PostResource(uriInfo, request, id);
     }
+    
+    
+    @GET
+    @Path("AllPosts")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getAllPosts() {
+    	String result = "";
+    	for(Post p : PlatformDao.instance.getPosts().values()) {
+    		result += "\n" + p.toString();
+    	}	
+    	return result;
+    }
+    
+    
 
 }

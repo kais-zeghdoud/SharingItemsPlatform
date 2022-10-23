@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Create user</title>
+	<link rel="stylesheet" href="form.css">
+</head>
+
+
+<body>
+	<div class="top-page">
+	    <h1>Sharing Items Platform</h1>
+	    <h3>Enter user's informations !</h3>
+  	</div>
+  
+  
+  <form class="form" action="../rest.item/rest/users" method="POST">
+  		
+  		<div class="form-input">
+		  	<label for="userID">User ID</label>
+		  	<input name="userID" />
+	  	</div> 	
+	  
+	  <div class="form-input">
+	  	<label for="fullName">Full name</label>
+	  	<input name="fullName"/>	
+	  </div>
+	  
+	  <div class="form-input">
+		  <input name="streetNB" placeholder="Street number"/>
+	  </div>
+	  
+	  <div class="form-input">
+		  <input name="streetName" placeholder="Street name"/>
+	  </div>
+	  
+	  <div class="form-input">
+		  <input name="postalCode" placeholder="Postal code"/>
+	  </div>
+	  
+	  
+	  <div class="form-input">
+		  <input name="city" placeholder="City"/>
+	  </div>
+	  
+	  <div class="form-input">
+		  <input name="country" placeholder="Country"/>
+	  </div>
+	  
+	  <div class="form-input">
+	  	<input type="submit" value="Submit" />
+	  </div>
+	  
+  </form>
+
+</body>
+</html>

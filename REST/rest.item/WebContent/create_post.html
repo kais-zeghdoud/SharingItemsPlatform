@@ -1,41 +1,61 @@
 <!DOCTYPE html>
 <html>
+
  <head>
-  <title>Form to create a new resource</title>
+  <title>Post an item</title>
+  <link rel="stylesheet" href="form.css">
  </head>
+ 
+ 
 <body>
-  <form action="../rest.item/rest/posts" method="POST">
+
+  <div class="top-page">
+    <h1>Sharing Items Platform</h1>
+    <h3>Enter item information to post it !</h3>
+  </div>
   
-	  <label for="category">Item category</label>
-      <select name="category">
-        <option value="book">Book</option>
-        <option value="videoGame">Video Game</option>
-        <option value="musicCD">CD music</option>
-        <option value="DVD">DVD</option>
-      </select>
-      <br/>
+  
+  <form class="form" action="../rest.item/rest/posts" method="POST">
+  		
+  		<div class="form-input">
+		  	<label for="userID">User ID</label>
+		  	<input name="userID" />
+	  	</div>
+  
+	  <div class="form-input">
+		  <label for="category">Item category</label>
+	      <select name="category">
+	        <option value="book">Book</option>
+	        <option value="videoGame">Video Game</option>
+	        <option value="musicCD">CD music</option>
+	        <option value="DVD">DVD</option>
+	      </select>
+	  </div>
 	  
-	  <label for="itemName">Item name</label>
-	  <input name="itemName" />
-	  <br/>
+	  <div class="form-input">
+	  	<label for="itemName">Item name</label>
+	  	<input name="itemName"/>	
+	  </div>
 	  
-	  <label for="author">Author</label>
-	  <input name="author" />
-	  <br/>
+	  <div class="form-input">
+		  <label for="author">Author</label>
+		  <input name="author" />
+	  </div>
 	  
-	  <label for="releaseDate">Item release date</label>
-      <input type="date" name="releaseDate" />
-      <br/>
-      
-      <label for="userID">User ID</label>
-	  <input name="userID" />
-	  <br/>
+	  <div class="form-input">
+	  	<label for="releaseDate">Item release date</label>
+      	<input type="date" name="releaseDate" />
+	  </div>
 	  
-	  Description:
-	  <TEXTAREA NAME="description" COLS=40 ROWS=6></TEXTAREA>
-	  <br/>
+	  <div class="form-input">
+		  <label for="description">Description</label>
+		  <TEXTAREA NAME="description"></TEXTAREA>
+	  </div>
 	  
-	  <input type="submit" value="Submit" />
+	  <div class="form-input">
+	  	<input type="submit" value="Submit" />
+	  </div>
+	  
   </form>
 </body>
 </html> 
