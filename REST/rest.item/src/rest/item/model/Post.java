@@ -34,4 +34,12 @@ public class Post {
     	return "\nPost ID : " + postID + "\nPost Time : " + postTime + "\nPoster's name : " + PlatformDao.instance.getUsers().get(posterID).getFullName()
     			+ "\nDescription : " + description +  postedItem.toString();
     }
+    
+    public float getAvgRates () {
+    	float avg = (float) 0.0;
+    	for (Rate r : ratings) {
+    		avg += r.getRate();
+    	}
+    	return (float) avg/ratings.size();
+    }
 }
