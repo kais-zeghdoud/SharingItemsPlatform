@@ -110,7 +110,7 @@ public class PostsResource {
     @GET
     @Path("ItemsByCategory")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getItemsByCategory(@FormParam("category")String category) {
+    public String getItemsByCategory(@PathParam("category")String category) {
     	String result = "";
     	
     	for(Post p : PlatformDao.instance.getPosts().values()) {
@@ -125,7 +125,7 @@ public class PostsResource {
     @GET
     @Path("ItemsByKeyword")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getItemsByKeyword(@FormParam("keyword")String keyword) {
+    public String getItemsByKeyword(@PathParam("keyword")String keyword) {
     	String result = "";
     	
     	for(Post p : PlatformDao.instance.getPosts().values()) {
@@ -140,7 +140,7 @@ public class PostsResource {
     @GET
     @Path("ItemsByCity")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getItemsByCity(@FormParam("city") String city) {
+    public String getItemsByCity(@PathParam("city") String city) {
     	String result = "";
     	
     	for(Post p : PlatformDao.instance.getPosts().values()) {
@@ -155,7 +155,7 @@ public class PostsResource {
     @GET
     @Path("ItemsByUser")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getItemsByUser(@FormParam("fullName") String fullName) {
+    public String getItemsByUser(@PathParam("fullName") String fullName) {
     	String result = "";
     	
     	for(Post p : PlatformDao.instance.getPosts().values()) {

@@ -57,6 +57,15 @@ h1 a:hover{
     margin-top: 5%;
     margin-bottom: 5%;
 }
+.box li{
+    margin-top: 2%;
+}
+.box a{
+    color : #175D85;
+}
+.box a:hover{
+    color: #81bbdc;;
+}
 
 .footer{
     width: 100%;
