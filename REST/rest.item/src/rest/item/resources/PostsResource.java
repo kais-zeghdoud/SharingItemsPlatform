@@ -114,7 +114,7 @@ public class PostsResource {
     	String result = "";
     	
     	for(Post p : PlatformDao.instance.getPosts().values()) {
-    		if(p.getItem().getItemCategory().toString().toLowerCase().equals(category.toLowerCase())){
+    		if(p.getItem().getItemCategory().toString().toLowerCase().equals("musicCD".toLowerCase())){ //category.toLowerCase()
     			result += "\n" + p.getItem().toString();
     		}
     	}
