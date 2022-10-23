@@ -23,19 +23,48 @@ flex-direction : column;
 }
 
 .form{
-width : 40%;
-height : 80vh;
+width : 30%;
+height : 60vh;
 margin-top: 10vh;
 border : 5px solid;
 background-color: #DDDDDD;
 display: inline-block;
-text-align : left;
+text-align : center;
 justify-content : space-between;
 }
 
 .form-input{
 width: 100%;
 height : 20px;
-margin-top : 2%;
-margin-left : 2%;
+margin-top : 5%;
+margin-bottom : 5%;
+}
+
+input{
+    width : 60%;
+    height: 20px;
+}
+select{
+    width: 30%;
+}
+
+textarea{
+    resize:none;
+    width: max-content;
+}
+
+textarea:invalid {
+    border: 1px dotted #175D85;
+  }
+  
+textarea:valid {
+    border: 1px solid #175D85 ;
+}
+
+#date-selector{
+    width: 30%;
+}
+
+#btn{
+    margin-top: 55px;
 }
