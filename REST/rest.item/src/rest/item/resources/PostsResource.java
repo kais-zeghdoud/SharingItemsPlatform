@@ -114,7 +114,7 @@ public class PostsResource {
     	String result = "";
     	
     	for(Post p : PlatformDao.instance.getPosts().values()) {
-    		if(p.getItem().getItemCategory().toString().equals(category)){
+    		if(p.getItem().getItemCategory().toString().toLowerCase().equals(category.toLowerCase())){
     			result += "\n" + p.getItem().toString();
     		}
     	}
@@ -129,7 +129,7 @@ public class PostsResource {
     	String result = "";
     	
     	for(Post p : PlatformDao.instance.getPosts().values()) {
-    		if(p.getItem().getItemName().contains(keyword)) {
+    		if(p.getItem().getItemName().toLowerCase().contains("favente")) { //contains(keyword.toLowerCase())
     			result += "\n" + p.getItem().toString() ;
     		}
     	}	
