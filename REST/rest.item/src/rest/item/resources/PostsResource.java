@@ -76,12 +76,12 @@ public class PostsResource {
             @FormParam("itemName") String itemName,
             @FormParam("author") String author,
             @FormParam("releaseDate") String releaseDate,
-            @FormParam("userID") int user,
+            @FormParam("userID") String userID,
             @FormParam("description") String description,
             @Context HttpServletResponse servletResponse) throws IOException {
     	
         Item item = new Item(cat, itemName, author, new SimpleDateFormat(releaseDate));
-        PlatformDao.instance.getPosts().put("9",new Post(user, item, description));
+        PlatformDao.instance.getPosts().put("9",new Post(userID, item, description));
         servletResponse.sendRedirect("../create_post.html");
     }
     
@@ -102,6 +102,64 @@ public class PostsResource {
     public String getAllPosts() {
     	String result = "";
     	for(Post p : PlatformDao.instance.getPosts().values()) {
+    		result += "\n" + p.toString();
+    	}	
+    	return result;
+    }
+    
+    @GET
+    @Path("ItemsByCategory")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getItemsByCategory(@FormParam("category")String category) {
+    	String result = "";
+    	
+    	for(Post p : PlatformDao.instance.getPosts().values()) {
+    		if(p.getItem().getItemCategory().toString().equals(category)){
+    			result += "\n" + p.getItem().toString();
+    		}
+    	}
+    	return result;
+    }
+    
+    
+    @GET
+    @Path("ItemsByKeyword")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getItemsByKeyword(@FormParam("keyword")String keyword) {
+    	String result = "";
+    	
+    	for(Post p : PlatformDao.instance.getPosts().values()) {
+    		if(p.getItem().getItemName().contains(keyword)) {
+    			result += "\n" + p.getItem().toString() ;
+    		}
+    	}	
+    	return result;
+    }
+    
+    
+    @GET
+    @Path("ItemsByCity")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getItemsByCity(@FormParam("city") String city) {
+    	String result = "";
+    	
+    	for(Post p : PlatformDao.instance.getPosts().values()) {
+    		 if(PlatformDao.instance.getUsers().get(p.getPosterID()).getAddress().getCity().equals("Paris")) {
+    			 result += "\n" + p.toString();
+    		 }
+    	}	
+    	return result;
+    }
+    
+    
+    @GET
+    @Path("ItemsByUser")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getItemsByUser(@FormParam("fullName") String fullName) {
+    	String result = "";
+    	
+    	for(Post p : PlatformDao.instance.getPosts().values()) {
+    		if(PlatformDao.instance.getUsers().get(p.getPosterID()).getFullName().equals(fullName))
     		result += "\n" + p.toString();
     	}	
     	return result;

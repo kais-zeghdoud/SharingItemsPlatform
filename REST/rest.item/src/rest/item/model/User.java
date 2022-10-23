@@ -8,19 +8,19 @@ import rest.item.dao.PlatformDao;
 
 @XmlRootElement
 public class User {
-	private final int userID;
+	private final String userID;
     private String fullName;
     private Address address;
     private List<Post> userRecommendations;
 
     public User(String fullName, Address address) {
     	this.fullName = fullName;
-    	userID = 0;
+    	userID = "1";
         //this.userID = PlatformDao.instance.getUsers().values().size() + 1;
         this.address = address;
     }
     
-    public int getID() {return userID;}
+    public String getID() {return userID;}
 
     public String getFullName(){return fullName;}
 

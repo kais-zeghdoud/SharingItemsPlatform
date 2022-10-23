@@ -9,12 +9,12 @@ import rest.item.dao.PlatformDao;
 public class Post {
 	private String postID;
     private Item postedItem;
-    private int posterID;
+    private String posterID;
     private String description;
     private LocalDateTime postTime;
     private List<Rate> ratings;
 
-    public Post(int posterID, Item item, String description) {
+    public Post(String posterID, Item item, String description) {
     	postID = "0" ;
         postedItem = item;
         this.posterID = posterID;
@@ -26,12 +26,12 @@ public class Post {
 
     public Item getItem(){return postedItem;}
 
-    public int getPoster(){return posterID;}
+    public String getPosterID(){return posterID;}
 
     public List<Rate> getRatings(){return ratings;}
     
     public String toString() {
-    	return "\nPost ID : " + postID + "\nPost Time : " + postTime + "\nDescription : " + description
-    			+  postedItem.toString();
+    	return "\nPost ID : " + postID + "\nPost Time : " + postTime + "\nPoster's name : " + PlatformDao.instance.getUsers().get(posterID).getFullName()
+    			+ "\nDescription : " + description +  postedItem.toString();
     }
 }
