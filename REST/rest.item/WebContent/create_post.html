@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+  <title>Post an item</title>
+  <link rel="stylesheet" href="form.css">
+ </head>
+ 
+ 
+<body>
+
+  <div class="top-page">
+	<a href="platform.html"><h1>Sharing Items Platform</h1></a>
+    <h3>Enter item information to post it !</h3>
+  </div>
+  
+  
+  <form class="form" action="../rest.item/rest/posts" method="POST">
+  		
+  		<div class="form-input">
+		  	<input name="userID" placeholder="User ID" required/>
+	  	</div>
+  
+	  <div class="form-input">
+		  <label for="category">Item category</label>
+	      <select name="category">
+	        <option value="book">Book</option>
+	        <option value="videoGame">Video Game</option>
+	        <option value="musicCD">CD music</option>
+	        <option value="DVD">DVD</option>
+	      </select>
+	  </div>
+	  
+	  <div class="form-input">
+	  	<input name="itemName" placeholder="Item name" required/>	
+	  </div>
+	  
+	  <div class="form-input">
+		  <input name="author" placeholder="Author" required/>
+	  </div>
+	  
+	  <div class="form-input">
+	  	<label for="releaseDate">Release date</label>
+      	<input id="date-selector" type="date" name="releaseDate" required/>
+	  </div>
+	  
+	  <div class="form-input">
+		  <TEXTAREA name="description"
+		  placeholder="Item description"
+		  rows="5" cols="29" minlength="5"
+		  required></TEXTAREA>
+	  </div>
+	  
+	  <div class="form-input">
+	  	<input type="submit" value="Submit" id="btn"/>
+	  </div>
+	  
+  </form>
+</body>
+</html> 

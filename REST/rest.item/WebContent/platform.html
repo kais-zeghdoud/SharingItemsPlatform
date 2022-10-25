@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="platform.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Sharing Items Platform</title>
+</head>
+
+<body>
+
+    <div class="top-page">
+        <h1><a href="platform.html">Sharing Items Platform</a></h1>
+    </div>
+
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Users</h3>
+            <ul>
+                <li><a href="create_user.html">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i> Register a user</a>
+                </li>
+                <li><a href="rest/users/AllUsers" target="_blank">
+                    <i class="fa fa-users" aria-hidden="true"></i> Get all users</a>
+                </li>
+                <li>
+                    <a href="rest/users/count" target="_blank">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i> Get user's number</a>
+                </li>
+                <li><a href="" target="rate_item.html">
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i> Rate an item</a>
+                </li>
+                <li><a href=""  target="_blank">
+                    <i class="fa fa-heart" aria-hidden="true"></i> Add a recommendation (nolink)</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h3>Items</h3>
+            <ul>
+                <li><a href="create_post.html"><i class="fa fa-comments-o" aria-hidden="true"></i> Post an item</a></li>
+                <li><a href="rest/posts/AllPosts" target="_blank"><i class="fa fa-inbox" aria-hidden="true"></i> Get all posted items</a></li>
+                <li><a href="rest/posts/count" target="_blank"><i class="fa fa-bar-chart" aria-hidden="true"></i> Get item's number</a></li>
+                <li><a href="rest/posts/ItemsByKeyword" target="_blank"><i class="fa fa-search" aria-hidden="true"></i> Get items by keyword</a></li>
+                <li><a href="rest/posts/ItemsByCity" target="_blank"><i class="fa fa-building-o" aria-hidden="true"></i> Get items by City</a></li>
+                <li><a href="rest/posts/ItemsByUser" target="_blank"><i class="fa fa-user" aria-hidden="true"></i> Get items by User</a></li>
+                <li><a href="rest/posts/ItemsByCategory" target="_blank"><i class="fa fa-folder-open" aria-hidden="true"></i> Get items by category</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>&copy;2022 Efrei REST Project</div>
+        <a href="https://github.com/kais-zeghdoud/SharingItemsPlatform.git" target="_blank">
+            <i class="fa fa-github" style="font-size:24px"></i> Github Repository
+        </a>
+    </div>
+    
+</body>
+</html>

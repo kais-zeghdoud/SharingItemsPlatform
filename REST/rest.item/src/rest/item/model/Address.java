@@ -1,13 +1,16 @@
 package rest.item.model;
+import javax.xml.bind.annotation.XmlRootElement;
 
+
+@XmlRootElement
 public class Address {
-    private final int streetNB;
+	private final String streetNB;
     private final String streetName;
-    private final int postalCode;
+    private final String postalCode;
     private final String city;
     private final String country;
 
-    public Address(int streetNB, String streetName, int postalCode, String city, String country){
+    public Address(String streetNB, String streetName, String postalCode, String city, String country){
         this.streetNB = streetNB;
         this.streetName = streetName;
         this.postalCode = postalCode;

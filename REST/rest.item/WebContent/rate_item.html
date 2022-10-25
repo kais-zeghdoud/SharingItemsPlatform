@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+  <title>Post an item</title>
+  <link rel="stylesheet" href="form.css">
+ </head>
+ 
+ 
+<body>
+
+  <div class="top-page">
+	<a href="platform.html"><h1>Sharing Items Platform</h1></a>
+    <h3>Rate an item !</h3>
+  </div>
+  
+  
+  <form class="form" action="../rest.item/rest/rate" method="POST">
+  		
+  		<div class="form-input">
+		  	<input name="postID" placeholder="Post ID" required/>
+	  	</div>
+  
+	  <div class="form-input">
+		  <label for="rate">Item's rate</label>
+	      <select name="rate">
+	        <option value="1">1</option>
+	        <option value="2">2</option>
+	        <option value="3">3</option>
+	        <option value="4">4</option>
+	        <option value="5">5</option>
+	      </select>
+	  </div>
+	  
+	  <div class="form-input">
+	  	<input name="user" placeholder="Your user ID" required/>	
+	  </div>
+	  
+	  <div class="form-input">
+		  <TEXTAREA name="text"
+		  placeholder="Rating commentary"
+		  rows="5" cols="29" minlength="5"
+		  required></TEXTAREA>
+	  </div>
+	  
+	  <div class="form-input">
+	  	<input type="submit" value="Submit" id="btn"/>
+	  </div>
+	  
+  </form>
+</body>
+</html> 

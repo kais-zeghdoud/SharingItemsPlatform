@@ -1,36 +1,45 @@
 package rest.item.model;
-import rest.item.model.Item;
-import rest.item.model.PlatformController;
-import rest.item.model.User;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDateTime;
 import java.util.List;
+import rest.item.dao.PlatformDao;
 
 
+@XmlRootElement
 public class Post {
-    private final int postID;
-    private final Item postedItem;
-    private final User poster;
-    private final String description;
+	private String postID;
+    private Item postedItem;
+    private String posterID;
+    private String description;
     private LocalDateTime postTime;
     private List<Rate> ratings;
-    private int recommendations;
 
-    public Post(Item item, User user, String description) {
-        this.postID = PlatformController.getInstance().getPosts().size() + 1;
+    public Post(String posterID, Item item, String description) {
+    	postID = "0" ;
         postedItem = item;
-        poster = user;
+        this.posterID = posterID;
         this.description = description;
         postTime = LocalDateTime.now();
-        recommendations = 0;
     }
+    
+    public String getID() {return postID;}
 
     public Item getItem(){return postedItem;}
 
-    public User getPoster(){return poster;}
+    public String getPosterID(){return posterID;}
 
     public List<Rate> getRatings(){return ratings;}
-
-    public int getRecommendations(){return recommendations;}
-
-    public void increaseRecommendations(){recommendations++;}
+    
+    public String toString() {
+    	return "\nPost ID : " + postID + "\nPost Time : " + postTime + "\nPoster's name : " + PlatformDao.instance.getUsers().get(posterID).getFullName()
+    			+ "\nDescription : " + description +  postedItem.toString();
+    }
+    
+    public float getAvgRates () {
+    	float avg = (float) 0.0;
+    	for (Rate r : ratings) {
+    		avg += r.getRate();
+    	}
+    	return (float) avg/ratings.size();
+    }
 }
